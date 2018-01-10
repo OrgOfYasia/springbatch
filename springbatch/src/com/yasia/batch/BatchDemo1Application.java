@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BatchDemo1Application {
 
 	public static void main(String[] args) {
-		
+		System.out.println("");
 		SpringApplication.run(BatchDemo1Application.class, args);
 
 	}
