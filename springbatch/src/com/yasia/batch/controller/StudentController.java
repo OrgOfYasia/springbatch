@@ -20,7 +20,7 @@ public class StudentController {
 	@RequestMapping(value="/all", method = {RequestMethod.GET, RequestMethod.POST})
 	public List<Student> findAllStu() {
 		
-		System.out.println("");
+		System.out.println("   ");
 		
 		return studentRepository.findAll();
 		
