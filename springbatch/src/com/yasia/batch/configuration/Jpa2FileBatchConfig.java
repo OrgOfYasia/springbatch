@@ -41,7 +41,7 @@ public class Jpa2FileBatchConfig {
 		.<Student, Student>chunk(5)
 		.reader(reader())
 		//.processor(processor())
-		.writer(db2TxtFileWriter())
+		//.writer(db2TxtFileWriter())
 		.allowStartIfComplete(true)
 		.build();
 	}
