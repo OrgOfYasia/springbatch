@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: springbatch
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: LinYunZhi
+Implementation-Vendor-Id: com.yasia
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://projects.spring.io/spring-boot/springbatch/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
