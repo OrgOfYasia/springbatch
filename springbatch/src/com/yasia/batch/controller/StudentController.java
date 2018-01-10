@@ -17,9 +17,14 @@ public class StudentController {
 	@Autowired
 	private StudentRepository studentRepository;
 	
-	@RequestMapping(value="/all", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/all", method = RequestMethod.GET)
 	public List<Student> findAllStu() {
-		
+		System.out.println("going to fetch student list...1");
+		System.out.println("going to fetch student list...2");
+		System.out.println("going to fetch student list...3");
+		System.out.println("going to fetch student list...4");
+		System.out.println("going to fetch student list...5");
+		System.out.println("going to fetch student list...6");
 		return studentRepository.findAll();
 		
 	}
