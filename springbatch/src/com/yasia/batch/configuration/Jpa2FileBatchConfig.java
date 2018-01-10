@@ -21,13 +21,18 @@ import com.yasia.batch.repository.StudentRepository;
  * @author LinYunZhi
  * @since 2018-01-09 00:18:30
  */
-//@Configuration
+@Configuration
 public class Jpa2FileBatchConfig {
 
-	@Autowired
-	private StepBuilderFactory stepBuilderFactory;
-	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
+	//@Autowired
+	private final StepBuilderFactory stepBuilderFactory;
+	//@Autowired
+	private final JobBuilderFactory jobBuilderFactory;
+	
+	public Jpa2FileBatchConfig(StepBuilderFactory stepBuilderFactory, JobBuilderFactory jobBuilderFactory){
+		this.stepBuilderFactory = stepBuilderFactory;
+		this.jobBuilderFactory = jobBuilderFactory;
+	}
 	
 	@Autowired
 	StudentRepository studentRepository;
@@ -41,7 +46,27 @@ public class Jpa2FileBatchConfig {
 		.<Student, Student>chunk(5)
 		.reader(reader())
 		//.processor(processor())
-		//.writer(db2TxtFileWriter())
+		.writer(db2TxtFileWriter())
+		.allowStartIfComplete(true)
+		.build();
+	}
+	
+	@Bean Step jpa2dbStep() throws Exception {
+		return this.stepBuilderFactory.get("jpa2FileStep")
+		.<Student, Student>chunk(5)
+		.reader(reader())
+		.processor(processor())
+		.writer(db2TxtFileWriter())
+		.allowStartIfComplete(true)
+		.build();
+	}
+	
+	@Bean Step xml2dbStep() throws Exception {
+		return this.stepBuilderFactory.get("jpa2FileStep")
+		.<Student, Student>chunk(5)
+		.reader(reader())
+		//.processor(processor())
+		.writer(db2TxtFileWriter())
 		.allowStartIfComplete(true)
 		.build();
 	}
