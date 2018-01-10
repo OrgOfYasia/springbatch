@@ -43,9 +43,9 @@ public class Jpa2XmlFileBatchConfig {
 	@Bean Step jpa2XmlFileStep() throws Exception {
 		return this.stepBuilderFactory.get("jpa2XmlFileStep")
 		.<Student, Student>chunk(5)
-		.reader(reader())
+		//.reader(reader())
 		//.processor(processor())
-		.writer(db2XmlFileWriter())
+		//.writer(db2XmlFileWriter())
 		.allowStartIfComplete(true)
 		.build();
 	}
